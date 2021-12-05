@@ -3,6 +3,7 @@ import 'package:flutter_web/components/footer.dart';
 import 'package:flutter_web/components/header.dart';
 import 'package:flutter_web/components/side_menu.dart';
 
+import 'components/aboutme.dart';
 import 'components/jumbotron.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -33,7 +34,7 @@ class HomeScreen extends StatelessWidget {
                 Header(),
 
                 Jumbotron(),
-                Jumbotron(),
+                Aboutme(),
 
                 Footer()
               ],

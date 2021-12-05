@@ -49,19 +49,19 @@ class Jumbotron extends StatelessWidget {
                       text: TextSpan(
                         children: [
                           TextSpan(
-                            text: 'Hello ',
-                            style: TextStyle(
-                              fontSize: isDesktop(context) ? 64 : 32,
-                              fontWeight: FontWeight.w800,
-                              color: kTextColor
+                            text: 'Hello I\'m  ',
+                            style: GoogleFonts.poppins(
+                              fontSize: isDesktop(context) ? 60 : 30,
+                            fontWeight: FontWeight.w300,
+                            color: Colors.black
                             )
                           ),
                           TextSpan(
-                            text: 'I\'m Arun',
-                            style: TextStyle(
-                              fontSize: isDesktop(context) ? 64 : 32,
-                              fontWeight: FontWeight.w800,
-                              color: Colors.black
+                            text: 'Arun',
+                            style:GoogleFonts.poppins(
+                              fontSize: isDesktop(context) ? 70 : 40,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.black
                             )
                           ),
                         ]
@@ -107,3 +107,16 @@ class Jumbotron extends StatelessWidget {
         ));
   }
 }
+
+
+
+
+
+
+
+
+// TextStyle(
+//                               fontSize: isDesktop(context) ? 70 : 40,
+//                               fontWeight: FontWeight.w800,
+//                               color: Colors.black
+//                             )
