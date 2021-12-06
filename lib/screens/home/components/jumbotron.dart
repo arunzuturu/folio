@@ -16,7 +16,7 @@ class Jumbotron extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Container(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(20),
         margin: EdgeInsets.symmetric(vertical: 40, horizontal: 40),
         decoration: BoxDecoration(
             color: kpagebgcolor,
@@ -37,70 +37,96 @@ class Jumbotron extends StatelessWidget {
                 children: <Widget>[
                   if (isMobile(context))
                     Image.asset(
-                      'assets/images/ay.png',
+                      'assets/images/b.png',
                       height: size.height * 0.3,
                     ),
-                    Container(
-                      padding:const EdgeInsets.fromLTRB(80, 0, 20, 40),
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(80, 0, 20, 40),
+                    child: Align(
+                      alignment: Alignment.topLeft,
                       child: Wrap(
                         runSpacing: 10,
                         children: [
-                        RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'Hello I\'m  ',
-                            style: GoogleFonts.poppins(
-                              fontSize: isDesktop(context) ? 60 : 30,
-                            fontWeight: FontWeight.w300,
-                            color: Colors.black
-                            )
-                          ),
-                          TextSpan(
-                            text: 'Arun',
-                            style:GoogleFonts.poppins(
-                              fontSize: isDesktop(context) ? 70 : 40,
-                            fontWeight: FontWeight.w800,
-                            color: Colors.black
-                            )
-                          ),
-                        ]
-                      )
-                  ),
-                      ],),
+                          RichText(
+                              text: TextSpan(children: [
+                            TextSpan(
+                                text: 'Hello I\'m  ',
+                                style: GoogleFonts.poppins(
+                                    fontSize: isDesktop(context) ? 60 : 30,
+                                    fontWeight: FontWeight.w300,
+                                    color: Colors.black)),
+                            TextSpan(
+                                text: 'Arun',
+                                style: GoogleFonts.poppins(
+                                    fontSize: isDesktop(context) ? 70 : 40,
+                                    fontWeight: FontWeight.w800,
+                                    color: Colors.black)),
+                          ])),
+                        ],
+                      ),
                     ),
-    
-                  Padding(
-                    padding: const EdgeInsets.only(left:80),
-                    child: SizedBox(
-                      width: 350.0,
-                      child: DefaultTextStyle(
-                        style: GoogleFonts.firaCode(
-                          fontWeight: FontWeight.w600,
-                          fontSize: isDesktop(context) ? 64 : 32,
-                        ),
-                        child: AnimatedTextKit(
-                          animatedTexts: [
-                            TypewriterAnimatedText('Welcome to my portfolio!',),
-                            TypewriterAnimatedText('It\'s nice to have you here'),
-                            TypewriterAnimatedText(
-                                'Scroll to find more about me'),
-                          ],
-
-                          onTap: () {
-                            print("Tap Event");
-                          },
+                  ),
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(80, 0, 40, 0),
+                      child: SizedBox(
+                        width: 300.0,
+                        child: DefaultTextStyle(
+                          style: GoogleFonts.firaCode(
+                            fontWeight: FontWeight.w600,
+                            fontSize: isDesktop(context) ? 45 : 25,
+                          ),
+                          child: AnimatedTextKit(
+                            animatedTexts: [
+                              TypewriterAnimatedText(
+                                'Welcome to my portfolio!',
+                              ),
+                              TypewriterAnimatedText(
+                                  'It\'s nice to have you here'),
+                              TypewriterAnimatedText(
+                                  'Scroll to find more about me'),
+                            ],
+                            onTap: () {
+                              print("Tap Event");
+                            },
+                          ),
                         ),
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(height: 26,),
+                  Align(
+                    alignment:  isMobile(context) ? Alignment(0,-0.8):Alignment.topLeft , 
+                    child: Padding(
+                      padding: isMobile(context) ? const EdgeInsets.fromLTRB(50, 40, 40, 0) : const EdgeInsets.fromLTRB(80, 40, 40, 0),
+                      child: InkWell(
+                        onTap: () {},
+                        hoverColor: Color(0XFFF1F3F6),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(24),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 25,vertical:15),
+                            child: Text(
+                              "Download CV",
+                              style: TextStyle(
+                                  color: Colors.white, fontWeight: FontWeight.w800),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             )),
             if (isDesktop(context) || isTab(context))
               Expanded(
                   child: Image.asset(
-                'assets/images/ay.png',
+                'assets/images/b.png',
                 height: size.height * 0.7,
               ))
           ],
