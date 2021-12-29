@@ -3,8 +3,10 @@ import 'package:flutter_web/components/footer.dart';
 import 'package:flutter_web/components/header.dart';
 import 'package:flutter_web/components/side_menu.dart';
 
+
 import 'components/aboutme.dart';
 import 'components/jumbotron.dart';
+import 'components/work.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -35,6 +37,8 @@ class HomeScreen extends StatelessWidget {
 
                 Jumbotron(),
                 Aboutme(),
+                Work(),
+                
 
                 Footer()
               ],
@@ -45,3 +49,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
