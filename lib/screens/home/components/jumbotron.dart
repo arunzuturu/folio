@@ -37,7 +37,7 @@ class Jumbotron extends StatelessWidget {
                 children: <Widget>[
                   if (isMobile(context))
                     Image.asset(
-                      'assets/images/b.png',
+                      'assets/images/sapiens.png',
                       height: size.height * 0.3,
                     ),
                   Container(
@@ -126,7 +126,7 @@ class Jumbotron extends StatelessWidget {
             if (isDesktop(context) || isTab(context))
               Expanded(
                   child: Image.asset(
-                'assets/images/b.png',
+                'assets/images/sapiens.png',
                 height: size.height * 0.7,
               ))
           ],

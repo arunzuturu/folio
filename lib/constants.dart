@@ -4,7 +4,7 @@ const kPrimaryColor = Color(0XFF88C54D);
 const kSecondaryColor = Color(0XFFFFC906);
 const kTextColor = Color(0XFF282828);
 const kButtonbgcolor = Color(0XFFF1F3F6);
-const kpagebgcolor = Color(0XFFF3F4F6);
+const kpagebgcolor = Color(0XFFFEFEFD);
 const kpagebgcolor2 =  Color(0XFFBEC0C4);
 
 const kTextLightColor = Color(0xFF555555);
@@ -18,9 +18,9 @@ final kDefaultShadow = BoxShadow(
 );
 
 final kDefaultCardShadow = BoxShadow(
-  //offset: Offset(0, 20),
-  blurRadius: 50,
-  color: Colors.black,
+  offset: Offset(0, 20),
+  blurRadius: 5,
+  color: Colors.grey,
 );
 
 // TextField dedign
