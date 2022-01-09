@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web/components/footer.dart';
 import 'package:flutter_web/components/header.dart';
 import 'package:flutter_web/components/side_menu.dart';
+import 'package:flutter_web/screens/home/components/contact.dart';
+import 'package:flutter_web/screens/home/components/skills.dart';
 
 
 import 'components/aboutme.dart';
@@ -34,12 +36,11 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Header(),
-
                 Jumbotron(),
                 Aboutme(),
                 Work(),
-                
-
+                Skills(),
+                Contact(),
                 Footer()
               ],
             ),

@@ -135,7 +135,7 @@ class NavItem extends StatelessWidget {
         child: Text(
           title,
           style: TextStyle(
-            color: kPrimaryColor,
+            color: Colors.black,
             fontSize: 12
           ),
         ),
