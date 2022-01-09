@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
   
     Size size = MediaQuery.of(context).size;
-
+    final List<GlobalKey> _key = List.generate(20, (index) => GlobalKey());
     return Scaffold(
       endDrawer: ConstrainedBox(
         constraints: BoxConstraints(

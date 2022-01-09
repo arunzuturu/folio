@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web/responsive.dart';
-
-import '../constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Footer extends StatelessWidget {
   const Footer({
@@ -41,22 +40,24 @@ class DesktopFooter extends StatelessWidget {
               children: <Widget>[
                 NavItem(
                   title: 'Twitter',
-                  tapEvent: () {},
+                  tapEvent: () {
+                    _launchURL('https://twitter.com/Arunadithya11');
+                  },
                 ),
 
                 NavItem(
                   title: 'Facebook',
-                  tapEvent: () {},
+                  tapEvent: () { _launchURL('https://www.facebook.com/arun.adithya.100/');},
                 ),
 
                 NavItem(
                   title: 'Linkedin',
-                  tapEvent: () {},
+                  tapEvent: () {_launchURL('https://www.linkedin.com/in/arun-adithya-zuturu-7b524414a/');},
                 ),
 
                 NavItem(
                   title: 'Instagram',
-                  tapEvent: () {},
+                  tapEvent: () { _launchURL('https://www.instagram.com/just_arunz/');},
                 ),
               ],
             )
@@ -64,6 +65,13 @@ class DesktopFooter extends StatelessWidget {
         ],
       ),
     );
+  }
+  _launchURL(url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
 
@@ -90,28 +98,43 @@ class MobileFooter extends StatelessWidget {
             children: <Widget>[
               NavItem(
                 title: 'Twitter',
-                tapEvent: () {},
+                tapEvent: () {
+                  _launchURL('https://twitter.com/Arunadithya11');
+                },
               ),
-          
+
               NavItem(
                 title: 'Facebook',
-                tapEvent: () {},
+                tapEvent: () {
+                  _launchURL('https://www.facebook.com/arun.adithya.100/');
+                },
               ),
-          
+
               NavItem(
                 title: 'Linkedin',
-                tapEvent: () {},
+                tapEvent: () {
+                  _launchURL('https://www.linkedin.com/in/arun-adithya-zuturu-7b524414a/');
+                },
               ),
-          
+
               NavItem(
                 title: 'Instagram',
-                tapEvent: () {},
+                tapEvent: () {
+                  _launchURL('https://www.instagram.com/just_arunz/');
+                },
               ),
             ],
           )
         ],
       ),
     );
+  }
+  _launchURL(url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
 
@@ -142,4 +165,5 @@ class NavItem extends StatelessWidget {
       ),
     );
   }
+  
 }

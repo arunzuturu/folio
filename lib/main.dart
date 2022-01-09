@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web/constants.dart';
 import 'package:flutter_web/screens/home/home.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+void main () async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 

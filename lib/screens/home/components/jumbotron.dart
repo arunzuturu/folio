@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web/components/main_button.dart';
 import 'package:flutter_web/responsive.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../constants.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -101,7 +102,9 @@ class Jumbotron extends StatelessWidget {
                     child: Padding(
                       padding: isMobile(context) ? const EdgeInsets.fromLTRB(50, 40, 40, 0) : const EdgeInsets.fromLTRB(80, 40, 40, 0),
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          _launchURL('https://drive.google.com/uc?export=download&id=1l3GzpSL4xbJ4aKBKqxoEfZou5Q2wlZNh');
+                        },
                         hoverColor: Color(0XFFF1F3F6),
                         child: Container(
                           decoration: BoxDecoration(
@@ -131,6 +134,13 @@ class Jumbotron extends StatelessWidget {
               ))
           ],
         ));
+  }
+  _launchURL(url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
 

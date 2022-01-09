@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web/responsive.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../constants.dart';
-import 'menu_item.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Header extends StatelessWidget {
   const Header({
@@ -29,32 +27,17 @@ class Header extends StatelessWidget {
           ),
 
           Spacer(),
-
           if (!isMobile(context))
             Row(
               children: [
-                NavItem(
-                  title: 'About',
-                  tapEvent: () {},
-                  isbutton: false,
-                ),
-                NavItem(
-                  title: 'Work',
-                  tapEvent: () {},
-                  isbutton: false,
-                ),
-                NavItem(
-                  title: 'Contact',
-                  tapEvent: () {},
-                  isbutton: false,
-                ),
-                SizedBox(width: 50),
                 Padding(
                   padding: const EdgeInsets.only(bottom:3),
                   child: Row(
                     children: [
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          _launchURL('https://mail.google.com/mail/u/0/?fs=1&to=arunzuturu@gmail.com&su=%22I%20would%20like%20to%20hire%20you%22&body=BODY&tf=cm');
+                        },
                         hoverColor: Color(0XFFF1F3F6),
                         child: Container(
                           padding: const EdgeInsets.all(6),
@@ -101,5 +84,13 @@ class Header extends StatelessWidget {
         ],
       ),
     );
+
+  }
+  _launchURL(url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

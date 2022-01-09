@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 class ContactForm extends StatefulWidget {
   const ContactForm({Key? key}) : super(key: key);
 
@@ -89,6 +91,7 @@ class _ContactFormState extends State<ContactForm> {
 
   @override
   Widget build(BuildContext context) {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
     return Container(
       padding: EdgeInsets.all(30),
       margin: EdgeInsets.symmetric(vertical: 40, horizontal: 40),
@@ -130,6 +133,7 @@ class _ContactFormState extends State<ContactForm> {
                         backgroundColor: Colors.black,
                       );
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      users.add({'name' : name,'email': email,'projectType':projectType,'projectBudget':projectBudget,'description':description}).then((value) => print("user added")).catchError((error)=>print(error));
                     }
                   },
                   child: Text(
