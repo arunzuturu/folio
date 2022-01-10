@@ -24,7 +24,7 @@ class _ProjectProgressCardState extends State<ProjectProgressCard> {
   Widget build(BuildContext context) {
     return isMobile(context)?
     GestureDetector(
-      onLongPress: (){
+      onTap: (){
         setState(() {
           pressed = true;
         });
