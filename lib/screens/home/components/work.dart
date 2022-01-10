@@ -15,46 +15,46 @@ class _WorkState extends State<Work> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      padding: const EdgeInsets.fromLTRB(115, 0, 20, 40),
-    child: Column(
-      children: [
-    Container(
-    // color: kpagebgcolor,
-    margin: EdgeInsets.symmetric(vertical: 40, horizontal: 40),
-      child: Text("PROJECTS"),
-    ),
-        Wrap(
-          runSpacing: 20,
-          children: [
-            ProjectProgressCard(
-              projectName: 'Feather',
-              url: "https://github.com/arunzuturu/feather",
-              projectDescription: "Get the weather in a beautiful and powerful app. See current weather with a smart layout that updates as conditions change.",
-            ),
-            SizedBox(width: 25),
-            ProjectProgressCard(
-              projectName: 'Covid 19 Tracer',
-              url: "https://github.com/arunzuturu/coividapp",
-              projectDescription: "An All In One Covid-19 App, find vaccines, case statistics, isolation helpers and a lot more baked into one portable app.",
-            ),
-            SizedBox(width: 25),
-            ProjectProgressCard(
-              url: "https://github.com/arunzuturu/VJH_003",
-              projectName: 'Medigo',
-              projectDescription: "A medical app that locates nearest health centers,based on users location on a live database.",
-            ),
-            SizedBox(width: 25),
-            ProjectProgressCard(
-              url: "https://github.com/arunzuturu",
-              projectName: 'Coming Soon',
-              projectDescription: "coming soon.",
-            ),
+      padding: EdgeInsets.all(20),
+      margin: EdgeInsets.symmetric(vertical: 40, horizontal: 40),
+    child: Center(
+      child: Column(
+        children: [
+      Center(child: Text("PROJECTS")),
+          SizedBox(height: 20,),
+          Wrap(
+            runSpacing: 20,
+            children: [
+              ProjectProgressCard(
+                projectName: 'Feather',
+                url: "https://github.com/arunzuturu/feather",
+                projectDescription: "Get the weather in a beautiful and powerful app. See current weather with a smart layout that updates as conditions change.",
+              ),
+              SizedBox(width: 25),
+              ProjectProgressCard(
+                projectName: 'Covid 19 Tracer',
+                url: "https://github.com/arunzuturu/coividapp",
+                projectDescription: "An All In One Covid-19 App, find vaccines, case statistics, isolation helpers and a lot more baked into one portable app.",
+              ),
+              SizedBox(width: 25),
+              ProjectProgressCard(
+                url: "https://github.com/arunzuturu/VJH_003",
+                projectName: 'Medigo',
+                projectDescription: "A medical app that locates nearest health centers,based on users location on a live database.",
+              ),
+              SizedBox(width: 25),
+              ProjectProgressCard(
+                url: "https://github.com/arunzuturu",
+                projectName: 'Coming Soon',
+                projectDescription: "coming soon.",
+              ),
 
-          ],
+            ],
 
 
-        ),
-      ],
+          ),
+        ],
+      ),
     ),
     );
   }

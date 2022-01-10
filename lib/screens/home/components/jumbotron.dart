@@ -53,13 +53,13 @@ class Jumbotron extends StatelessWidget {
                             TextSpan(
                                 text: 'Hello I\'m  ',
                                 style: GoogleFonts.poppins(
-                                    fontSize: isDesktop(context) ? 60 : 30,
+                                    fontSize: isDesktop(context) ? 50 : 30,
                                     fontWeight: FontWeight.w300,
                                     color: Colors.black)),
                             TextSpan(
                                 text: 'Arun',
                                 style: GoogleFonts.poppins(
-                                    fontSize: isDesktop(context) ? 70 : 40,
+                                    fontSize: isDesktop(context) ? 60 : 40,
                                     fontWeight: FontWeight.w800,
                                     color: Colors.black)),
                           ])),
@@ -76,17 +76,18 @@ class Jumbotron extends StatelessWidget {
                         child: DefaultTextStyle(
                           style: GoogleFonts.firaCode(
                             fontWeight: FontWeight.w600,
-                            fontSize: isDesktop(context) ? 45 : 25,
+                            fontSize: isDesktop(context) ? 35 : 25,
                           ),
                           child: AnimatedTextKit(
                             animatedTexts: [
+                              TypewriterAnimatedText('Welcome to my portfolio!',
+                                  textStyle: TextStyle(color: Colors.black)),
                               TypewriterAnimatedText(
-                                'Welcome to my portfolio!',
-                              ),
+                                  'It\'s nice to have you here',
+                                  textStyle: TextStyle(color: Colors.black)),
                               TypewriterAnimatedText(
-                                  'It\'s nice to have you here'),
-                              TypewriterAnimatedText(
-                                  'Scroll to find more about me'),
+                                  'Scroll to find more about me',
+                                  textStyle: TextStyle(color: Colors.black)),
                             ],
                             onTap: () {
                               print("Tap Event");
@@ -96,14 +97,21 @@ class Jumbotron extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 26,),
+                  SizedBox(
+                    height: 26,
+                  ),
                   Align(
-                    alignment:  isMobile(context) ? Alignment(0,-0.8):Alignment.topLeft , 
+                    alignment: isMobile(context)
+                        ? Alignment(0, -0.8)
+                        : Alignment.topLeft,
                     child: Padding(
-                      padding: isMobile(context) ? const EdgeInsets.fromLTRB(50, 40, 40, 0) : const EdgeInsets.fromLTRB(80, 40, 40, 0),
+                      padding: isMobile(context)
+                          ? const EdgeInsets.fromLTRB(50, 40, 40, 0)
+                          : const EdgeInsets.fromLTRB(80, 40, 40, 0),
                       child: InkWell(
                         onTap: () {
-                          _launchURL('https://drive.google.com/uc?export=download&id=1l3GzpSL4xbJ4aKBKqxoEfZou5Q2wlZNh');
+                          _launchURL(
+                              'https://drive.google.com/uc?export=download&id=1l3GzpSL4xbJ4aKBKqxoEfZou5Q2wlZNh');
                         },
                         hoverColor: Color(0XFFF1F3F6),
                         child: Container(
@@ -112,11 +120,13 @@ class Jumbotron extends StatelessWidget {
                             borderRadius: BorderRadius.circular(24),
                           ),
                           child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 25,vertical:15),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 25, vertical: 15),
                             child: Text(
                               "Download CV",
                               style: TextStyle(
-                                  color: Colors.white, fontWeight: FontWeight.w800),
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w800),
                             ),
                           ),
                         ),
@@ -135,6 +145,7 @@ class Jumbotron extends StatelessWidget {
           ],
         ));
   }
+
   _launchURL(url) async {
     if (await canLaunch(url)) {
       await launch(url);
@@ -143,13 +154,6 @@ class Jumbotron extends StatelessWidget {
     }
   }
 }
-
-
-
-
-
-
-
 
 // TextStyle(
 //                               fontSize: isDesktop(context) ? 70 : 40,

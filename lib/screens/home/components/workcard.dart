@@ -1,9 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../../constants.dart';
 import '../../../responsive.dart';
 import 'package:url_launcher/url_launcher.dart';
 class ProjectProgressCard extends StatefulWidget {
@@ -21,9 +19,88 @@ class ProjectProgressCard extends StatefulWidget {
 
 class _ProjectProgressCardState extends State<ProjectProgressCard> {
   bool hovered = false;
+  bool pressed = false;
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
+    return isMobile(context)?
+    GestureDetector(
+      onLongPress: (){
+        setState(() {
+          pressed = true;
+        });
+      },
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 275),
+        height: pressed? 300.0 : 295.0,
+        width: pressed ? 250.0 : 245.0,
+        decoration: BoxDecoration(
+            color: pressed ? Color(0xff010101) : Colors.white,
+            borderRadius: BorderRadius.circular(15.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.shade100,
+                blurRadius: 10.0,
+                spreadRadius: 5.0,
+              ),
+            ]),
+        child: Center(
+            child: DefaultTextStyle(
+              style: GoogleFonts.quicksand(
+                fontWeight: FontWeight.w600,
+                fontSize: isDesktop(context) ? 35 : 25,
+                color: pressed ? Colors.white : Colors.black,
+              ),
+              child: !pressed
+                  ?  (widget.projectName == "Coming Soon") ? AnimatedTextKit(
+                    animatedTexts: [
+                      WavyAnimatedText(widget.projectName),
+                    ],
+                    onTap: () {
+                      print("Tap Event");
+                    },
+                  ):
+              AutoSizeText(widget.projectName, maxLines: 1,)
+                  : Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    AnimatedTextKit(animatedTexts: [
+                      TypewriterAnimatedText(
+                        widget.projectName,
+                      ),
+                    ]),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(20, 10, 20, 15),
+                      child: Text(widget.projectDescription, style: GoogleFonts.openSans(
+                          fontSize: isDesktop(context) ? 15 : 15
+                      ),
+                        textAlign:TextAlign.left,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 14,
+                    ),
+                    ElevatedButton(onPressed: (){
+                      _launchURL(widget.url);
+                    }, child: Text("Check Github",
+                      style: TextStyle(
+                          color: Colors.black
+                      ),
+                    ),
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.white
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            )),
+      )):
+    MouseRegion(
         onEnter: (value) {
           setState(() {
             hovered = true;
@@ -50,38 +127,38 @@ class _ProjectProgressCardState extends State<ProjectProgressCard> {
               ]),
           child: Center(
               child: DefaultTextStyle(
-            style: GoogleFonts.quicksand(
-              fontWeight: FontWeight.w600,
-              fontSize: isDesktop(context) ? 45 : 25,
-              color: hovered ? Colors.white : Colors.black,
-            ),
-            child: !hovered
-                ?  (widget.projectName == "Coming Soon") ? AnimatedTextKit(
-                    animatedTexts: [
-                      WavyAnimatedText(widget.projectName),
-                    ],
-                    onTap: () {
-                      print("Tap Event");
-                    },
-                  ):
-                Text(widget.projectName)
-                : Padding(
+                style: GoogleFonts.quicksand(
+                  fontWeight: FontWeight.w600,
+                  fontSize: isDesktop(context) ? 35 : 25,
+                  color: hovered ? Colors.white : Colors.black,
+                ),
+                child: !hovered
+                    ?  (widget.projectName == "Coming Soon") ? AnimatedTextKit(
+                  animatedTexts: [
+                    WavyAnimatedText(widget.projectName),
+                  ],
+                  onTap: () {
+                    print("Tap Event");
+                  },
+                ):
+                AutoSizeText(widget.projectName, maxLines: 1,)
+                    : Padding(
                   padding: const EdgeInsets.all(18.0),
                   child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       AnimatedTextKit(animatedTexts: [
-                          TypewriterAnimatedText(
-                            widget.projectName,
-                          ),
-                        ]),
+                        TypewriterAnimatedText(
+                          widget.projectName,
+                        ),
+                      ]),
                       SizedBox(
                         height: 10,
                       ),
                       Padding(
                         padding: EdgeInsets.fromLTRB(20, 10, 20, 15),
                         child: Text(widget.projectDescription, style: GoogleFonts.openSans(
-                          fontSize: isDesktop(context) ? 15 : 15
+                            fontSize: isDesktop(context) ? 15 : 15
                         ),
                           textAlign:TextAlign.left,
                         ),
@@ -93,17 +170,17 @@ class _ProjectProgressCardState extends State<ProjectProgressCard> {
                         _launchURL(widget.url);
                       }, child: Text("Check Github",
                         style: TextStyle(
-                          color: Colors.black
+                            color: Colors.black
                         ),
                       ),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.white
+                            primary: Colors.white
                         ),
                       )
                     ],
                   ),
                 ),
-          )),
+              )),
         ));
   }
 }

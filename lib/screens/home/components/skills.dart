@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web/components/main_button.dart';
 import 'package:flutter_web/responsive.dart';
 import 'package:flutter_web/screens/home/components/skillcards.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import '../../../constants.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
+
 
 class Skills extends StatelessWidget {
   const Skills({
@@ -83,7 +80,9 @@ class Skills extends StatelessWidget {
                           SizedBox(height: 20,),
                           Center(child: Text("KNOWN LANGUAGES")),
                           SizedBox(height: 20,),
-                          Row(
+                          Wrap(
+                            runSpacing: 10,
+                          runAlignment: WrapAlignment.start,
                           children: [
                             Image.asset('assets/images/python.png',scale: 25,),
                             SizedBox(width: 5,),

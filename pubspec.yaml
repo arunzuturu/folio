@@ -28,6 +28,7 @@ dependencies:
   flutter_vector_icons: ^1.0.0
   firebase_core: ^1.11.0
   cloud_firestore: ^3.1.6
+  auto_size_text: ^3.0.0
   flutter:
     sdk: flutter
 

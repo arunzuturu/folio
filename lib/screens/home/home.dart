@@ -10,30 +10,29 @@ import 'components/aboutme.dart';
 import 'components/jumbotron.dart';
 import 'components/work.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-  
-    Size size = MediaQuery.of(context).size;
-    final List<GlobalKey> _key = List.generate(20, (index) => GlobalKey());
     return Scaffold(
       endDrawer: ConstrainedBox(
         constraints: BoxConstraints(
-          maxWidth: 300
+            maxWidth: 300
         ),
         child: SideMenu(),
       ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
-            width: size.width,
-            constraints: BoxConstraints(
-              minHeight: size.height
-            ),
-
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Header(),
                 Jumbotron(),
@@ -50,4 +49,5 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
 
